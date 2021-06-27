@@ -1,0 +1,5 @@
+all:
+  hosts:
+    web-server:
+      ansible_host: test.example.com
+      ansible_port: 22
