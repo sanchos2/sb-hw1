@@ -1,5 +1,4 @@
 temp/
 inventory/inventory.yaml
 playbooks/
-README.md
 ansible.cfg
