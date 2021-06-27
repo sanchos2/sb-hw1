@@ -1,0 +1,39 @@
+---
+- name: Install MariaDB server
+  yum:
+    name:
+      - mariadb-server
+      - mariadb
+    update_cache: true
+    state: present
+
+- name: Start and enable MariaDB server
+  service:
+    name: mariadb
+    enabled: true
+    state: started
+
+- name: Adds Python MySQL support
+  yum:
+    name: MySQL-python
+    update_cache: true
+    state: present
+
+- name: test mysql_secure_installation
+  mysql_secure_installation:
+    login_password: ""
+    new_password: "{{ mysql_root_password }}"
+    user: root
+    login_host: localhost
+    hosts: ['localhost', '127.0.0.1', '::1']
+    change_root_password: true
+    remove_anonymous_user: true
+    disallow_root_login_remotely: true
+    remove_test_db: true
+
+- name: Cteate '/root/.my.cnf' file
+  template:
+    src: my.cnf.j2
+    dest: /root/.my.cnf
+    mode: 0600
+  notify: Restart MariaDB

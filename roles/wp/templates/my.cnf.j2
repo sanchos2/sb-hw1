@@ -1,0 +1,37 @@
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+symbolic-links=0
+
+max_connections = {{ max_connections }}
+innodb_buffer_pool_size = {{ innodb_buffer_pool_size }}
+innodb_flush_log_at_trx_commit = {{ innodb_flush_log_at_trx_commit }}
+innodb_flush_method = {{ innodb_flush_method }}
+thread_cache_size = {{ thread_cache_size }}
+query_cache_size = {{ query_cache_size }}
+query_cache_type = {{ query_cache_type }}
+query_cache_limit = {{ query_cache_limit }}
+
+innodb_stats_on_metadata = {{ innodb_stats_on_metadata }}
+innodb_file_per_table = {{ innodb_file_per_table }}
+innodb_log_file_size = {{ innodb_log_file_size }}
+innodb_open_files = {{ innodb_open_files }}
+
+tmp_table_size = {{ tmp_table_size }}
+max_heap_table_size = {{ max_heap_table_size }}
+
+skip_name_resolve = {{ skip_name_resolve }}
+
+slow_query_log = {{ slow_query_log }}
+long_query_time = {{ long_query_time }}
+
+slow_query_log_file = /var/log/mariadb/slow-query.log
+
+[mysqld_safe]
+log-error=/var/log/mariadb/mariadb.log
+pid-file=/var/run/mariadb/mariadb.pid
+
+!includedir /etc/my.cnf.d
+
+
+

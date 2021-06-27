@@ -1,0 +1,10 @@
+galaxy_info:
+  role_name: https
+  author: Alexander Lyaksa
+  description: "Enable HTTPS with certificate"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - 7

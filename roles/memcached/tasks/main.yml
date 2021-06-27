@@ -1,0 +1,22 @@
+---
+- name: Install memcached
+  yum:
+    name:
+      - memcached
+      - libmemcached
+    update_cache: true
+    state: present
+
+- name: Copy config file
+  template:
+    src: memcached.j2
+    dest: /etc/sysconfig/memcached
+    mode: 0644
+  notify:
+    - restart memcached
+
+- name: Start and enable memcached
+  service:
+    name: memcached
+    state: started
+    enabled: true

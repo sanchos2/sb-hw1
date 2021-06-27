@@ -1,0 +1,10 @@
+galaxy_info:
+  role_name: wp
+  author: Alexander Lyaksa
+  description: "Install and configure Wordpress"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - 7

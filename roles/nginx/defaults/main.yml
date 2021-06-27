@@ -1,0 +1,6 @@
+---
+http_port: 80
+https_port: 443
+server_name: example.com
+www_directory: /usr/share/nginx/html
+path_to_php-fpm_socket: unix:/var/run/php-fpm/php-fpm.sock

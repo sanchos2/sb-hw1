@@ -1,0 +1,7 @@
+---
+memcached_port: 11211
+memcached_user: memcached
+max_connection: 1024
+cache_size: 64
+thread: 8
+listen_ip: 127.0.0.1

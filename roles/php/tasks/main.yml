@@ -1,0 +1,38 @@
+---
+- name: Add Remi repository
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name: Enable Repo remi-safe
+  yum:
+    enablerepo: remi-safe
+
+- name: Choise repo
+  command:
+    cmd: yum-config-manager --enable remi-php74
+
+- name: Install php packages
+  yum:
+    name:
+      - php
+      - php-fpm
+      - php-mysqlnd
+      - php-memcached
+    update_cache: true
+    state: present
+
+- name: Copy php-fpm config
+  template:
+    src: www.conf.j2
+    dest: /etc/php-fpm.d/www.conf
+    mode: 0644
+  notify:
+    - Restart php-fpm
+    - Restart Nginx
+
+- name: Start and enable php-fpm
+  service:
+    name: php-fpm
+    state: started
+    enabled: true

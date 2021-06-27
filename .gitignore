@@ -1,0 +1,5 @@
+temp/
+inventory/
+playbooks/
+README.md
+ansible.cfg

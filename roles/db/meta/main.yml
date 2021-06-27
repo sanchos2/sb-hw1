@@ -1,0 +1,10 @@
+galaxy_info:
+  role_name: db
+  author: Alexander Lyaksa
+  description: "Install MariaDB server"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.1
+  platforms:
+    - name: EL
+      versions:
+        - 7

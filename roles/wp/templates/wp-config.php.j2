@@ -1,0 +1,22 @@
+<?php
+define('WP_CACHE', true);
+define( 'WPCACHEHOME', '/usr/share/nginx/html/wordpress/wp-content/plugins/wp-super-cache/' );
+define( 'DB_NAME', '{{ wp_db_name }}' );
+define( 'DB_USER', '{{ wp_db_user }}' );
+define( 'DB_PASSWORD', '{{ wp_db_password }}' );
+define( 'DB_HOST', 'localhost' );
+define( 'DB_CHARSET', 'utf8' );
+define( 'DB_COLLATE', '' );
+define('WP_MEMORY_LIMIT', '128M');
+
+{{ wp_salt }}
+
+$table_prefix = 'wp_';
+
+define( 'WP_DEBUG', {{ wp_debug }} );
+
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+require_once ABSPATH . 'wp-settings.php';

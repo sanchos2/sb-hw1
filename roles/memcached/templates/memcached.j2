@@ -1,0 +1,5 @@
+PORT="{{ memcached_port }}"
+USER="{{ memcached_user }}"
+MAXCONN="{{ max_connection }}"
+CACHESIZE="{{ cache_size }}"
+OPTIONS="-t {{ thread }} -l {{ listen_ip }} -U 0"

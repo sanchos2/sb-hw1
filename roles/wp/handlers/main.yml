@@ -1,0 +1,44 @@
+---
+- name: restart php-fpm
+  service:
+    name: php-fpm
+    state: restarted
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+
+- name: Restart MariaDB
+  service:
+    name: mariadb
+    state: restarted
+
+- name: Stop MariaDB
+  service:
+    name: mariadb
+    state: stopped
+
+- name: Wait until the socket file is removed
+  wait_for:
+    path: '/var/lib/mysql/mysql.sock'
+    state: absent
+
+- name: Find InnoDB log files
+  find:
+    paths: '/var/lib/mysql'
+    patterns: 'ib_logfile*'
+  register: innodb_log
+
+- name: Remove default InnoDB log files
+  file:
+    path: '{{ idb_log.path }}'
+    state: absent
+  loop: '{{ innodb_log.files }}'
+  loop_control:
+    loop_var: idb_log
+
+- name: Start MariaDB
+  service:
+    name: mariadb
+    state: started
