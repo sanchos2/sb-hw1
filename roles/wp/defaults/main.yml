@@ -25,7 +25,7 @@ query_cache_type: 0
 query_cache_limit: 3M
 innodb_stats_on_metadata: 0
 innodb_file_per_table: 1
-innodb_log_file_size: 48M
+innodb_log_file_size: 32M
 innodb_open_files: 4K
 tmp_table_size: 64M
 max_heap_table_size: 64M
