@@ -2,3 +2,5 @@ temp/
 inventory/inventory.yaml
 playbooks/
 ansible.cfg
+Vagrantfile
+.vagrant/

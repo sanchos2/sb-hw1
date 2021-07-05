@@ -1,0 +1,7 @@
+# MariaDB 10.5 CentOS repository list - created 2021-07-05 07:16 UTC
+# https://mariadb.org/download/
+[mariadb]
+name = MariaDB
+baseurl = http://mirror.mephi.ru/mariadb/yum/10.5/centos7-amd64
+gpgkey=http://mirror.mephi.ru/mariadb/yum/RPM-GPG-KEY-MariaDB
+gpgcheck=1
